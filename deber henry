@@ -1,0 +1,198 @@
+package app_henry;
+
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Vector;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Ventana_Principal extends JFrame {
+
+    JPanel p = new JPanel();
+    JLabel l = new JLabel(" JUGUEMOS ¿Escoge lo que quieres adivinar?");
+    JButton b = new JButton("CHEQUEAR");
+    JTextField t = new JTextField(15);
+    Ventana_Resultado q;
+    JComboBox cb;
+    private Ventana_Resultado v;
+
+    public Ventana_Principal() {
+        super("Ventana_Principal");
+      
+        setSize(300, 300);
+        setLocation(300, 200);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        agregarComponentes();
+        pack();
+
+    }
+
+    public void agregarComponentes() {
+        getContentPane().add(p);
+        p.setLayout(new GridBagLayout());
+        GridBagConstraints g = new GridBagConstraints();
+        g.gridx = 0;
+        g.gridy = 0;
+        g.insets = new Insets(10, 10, 10, 10); //espacio de 10 pixeles en la pantalla
+        p.add(l, g);
+        g.gridy = 1;
+        p.add(t, g);
+        Vector v = new Vector (5);
+        v.addElement("numero de la semana");
+        v.addElement("dia del anio");
+        cb = new JComboBox(v);
+        g.gridx = 1;
+        p.add(cb,g);
+        g.gridy = 2;
+        p.add(b, g);
+        b.addActionListener((new ActionListener() { //para detectar el clic del boton
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if (!t.getText().isEmpty()) {
+                    chequear();
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Inserte texto para empezar a jugar");
+                }
+            }
+        }));
+
+    }
+
+    public void chequear() {
+        try{
+      switch (cb.getSelectedIndex()) {
+            case 0:
+                try {
+                    int tex = Integer.parseInt(t.getText());
+                    Calendar c = Calendar.getInstance();
+                    int ca = c.get(Calendar.WEEK_OF_YEAR);
+
+                    if (tex == ca) {
+                        Ventana_Resultado v = new Ventana_Resultado();
+                        v.lr.setText("Correcto");
+                        v.lr.setForeground(Color.GREEN);
+                        v.br.setText("Terminar");
+                    } else {
+                        v = new Ventana_Resultado();
+                        v.lr.setText("incorrecto");
+                        v.lr.setForeground(Color.RED);
+                        v.br.setText("Trata de terminar el juego");
+
+                    }
+
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Por favor ingrese numeros enteros para jugar");
+                }
+                break;
+
+            case 1:
+                try {
+                    int tex = Integer.parseInt(t.getText());
+                    Calendar cl = Calendar.getInstance();
+                    int cal = cl.get(Calendar.DAY_OF_YEAR);
+
+                    if (tex == cal) {
+                        v = new Ventana_Resultado();
+                        v.lr.setText("Correcto");
+                        v.lr.setForeground(Color.GREEN);
+                        v.br.setText("Terminar");
+                    } else {
+                        v = new Ventana_Resultado();
+                        v.lr.setText("incorrecto");
+                        v.lr.setForeground(Color.RED);
+                        v.br.setText("Trata de terminar el juego");
+
+                    }
+
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Por favor ingrese numeros enteros para jugar");
+                }
+                break;
+
+            case 2:
+                try {
+                    int tex = Integer.parseInt(t.getText());
+                    Calendar po = Calendar.getInstance();
+                    int cap = po.get(Calendar.DAY_OF_YEAR);
+
+                    if (tex == cap) {
+                        v = new Ventana_Resultado();
+                        v.lr.setText("Correcto");
+                        v.lr.setForeground(Color.GREEN);
+                        v.br.setText("Terminar");
+                    } else {
+                        v = new Ventana_Resultado();
+                        v.lr.setText("incorrecto");
+                        v.lr.setForeground(Color.RED);
+                        v.br.setText("Trata de terminar el juego");
+
+                    }
+
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Por favor ingrese numeros enteros para jugar");
+                }
+                break;
+
+            case 3:
+                try {
+                    int tex = Integer.parseInt(t.getText());
+                    Calendar co = Calendar.getInstance();
+                    int pv = co.get(Calendar.DAY_OF_YEAR);
+
+                    if (tex == pv) {
+                        v = new Ventana_Resultado();
+                        v.lr.setText("Correcto");
+                        v.lr.setForeground(Color.GREEN);
+                        v.br.setText("Terminar");
+                    } else {
+                        v = new Ventana_Resultado();
+                        v.lr.setText("incorrecto");
+                        v.lr.setForeground(Color.RED);
+                        v.br.setText("Trata de terminar el juego");
+
+                    }
+
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Por favor ingrese numeros enteros para jugar");
+                }
+
+                try {
+                    int tex = Integer.parseInt(t.getText());
+                    Calendar c = Calendar.getInstance();
+                    int ca = c.get(Calendar.WEEK_OF_YEAR);
+
+                    if (tex == ca) {
+                        v = new Ventana_Resultado();
+                        v.lr.setText("Correcto");
+                        v.lr.setForeground(Color.GREEN);
+                        v.br.setText("Terminar");
+                    } else {
+                        v = new Ventana_Resultado();
+                        v.lr.setText("incorrecto");
+                        v.lr.setForeground(Color.RED);
+                        v.br.setText("Trata de terminar el juego");
+
+                    }
+
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Por favor ingrese numeros enteros para jugar");
+                }
+
+        }
+
+
+        }
+    }
+}
